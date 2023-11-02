@@ -1,3 +1,7 @@
 fastapi
 uvicorn
-deta
+supabase
+pandas
+numpy
+nltk
+scikit-learn

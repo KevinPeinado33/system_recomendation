@@ -1,8 +1,12 @@
-from fastapi import FastAPI
-from uvicorn import run
+import nltk
+from fastapi                 import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.controllers.ubigeo_controller import router as ubigeo_router
+from src.controllers.ubigeo_controller        import router as ubigeo_router
+from src.controllers.recomendation_controller import router as recomendation_router
+
+# nltk.download('punkt')
+# nltk.download('stopwords')
 
 app = FastAPI()
 
@@ -14,4 +18,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router( ubigeo_router, prefix='/ubigeo' )
+app.include_router( ubigeo_router       , prefix='/ubigeo' )
+app.include_router( recomendation_router, prefix='/recomendation' )
