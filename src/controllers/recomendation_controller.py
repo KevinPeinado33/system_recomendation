@@ -14,7 +14,7 @@ class RecomendationController:
         return { 'data': articles_recommended }
     
 
-    @router.get('/articles_recommended', status_code=status.HTTP_200_OK)
+    @router.post('/articles_recommended', status_code=status.HTTP_200_OK)
     def get_recomendation( article: dict = Body(...) ):
 
         title =  article['title']
