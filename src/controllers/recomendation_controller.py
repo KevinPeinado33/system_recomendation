@@ -1,4 +1,4 @@
-from fastapi import APIRouter, status
+from fastapi import APIRouter, status, Body
 from src.models.content_based_recomendation import ContentBasedRecomendation
 
 router                      = APIRouter()
@@ -15,8 +15,10 @@ class RecomendationController:
     
 
     @router.get('/articles_recommended', status_code=status.HTTP_200_OK)
-    def get_recomendation():
-        
-        recomendation = content_based_recomendation.recomendation(title='Laptop chipiada Asus rog')
+    def get_recomendation( article: dict = Body(...) ):
+
+        title =  article['title']
+
+        recomendation = content_based_recomendation.recomendation(title)
 
         return { 'data': recomendation }
