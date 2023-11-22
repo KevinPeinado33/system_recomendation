@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src.controllers.recomendation_controller import router as recomendation_router
 
-# nltk.download('punkt')
-# nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('stopwords')
 
 app = FastAPI()
 
